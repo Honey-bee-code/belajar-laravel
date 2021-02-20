@@ -17,3 +17,6 @@ Route::get('/', function () {
     return view('welcome', ['title' => 'Belajar Laravel']);
 });
 
+Route::get('home', function() {
+    return view('main');
+});
