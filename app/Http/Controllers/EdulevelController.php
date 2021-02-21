@@ -19,4 +19,9 @@ class EdulevelController extends Controller
         return view('edulevel.data', compact('edulevels')); //jika data yang dilempar namanya sama
         return view('edulevel.data')->with('edulevels', $edulevels); //
     }
+
+    public function add()
+    {
+        return view('edulevel.add');
+    }
 }

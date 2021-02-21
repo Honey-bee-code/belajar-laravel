@@ -7,7 +7,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Edulevel</h1>
+                    <h1>Data Jenjang</h1>
                 </div>
             </div>
         </div>
@@ -15,7 +15,8 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li class="active"><i class="fa fa-dashboard"></i></li>
+                        <li><a href="#">Edulevel</a></li>
+                        <li class="active">Data</li>
                     </ol>
                 </div>
             </div>
@@ -33,7 +34,7 @@
                         <strong>Data Jenjang</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="" class="btn btn-success btn-sm">
+                        <a href="{{url('edulevels/add')}}" class="btn btn-success btn-sm">
                             <i class="fa fa-plus"> Add</i>
                         </a>
                     </div>
@@ -44,7 +45,7 @@
                             <tr>
                                 <th width="20px">No.</th>
                                 <th>Name</th>
-                                <th>Desc.</th>
+                                <th>Description</th>
                                 <th width="100px"></th>
                             </tr>
                         </thead>

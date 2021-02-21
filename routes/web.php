@@ -22,3 +22,4 @@ Route::get('home', function() {
 });
 
 Route::get('edulevels', 'EdulevelController@data');
+Route::get('edulevels/add', 'EdulevelController@add');
