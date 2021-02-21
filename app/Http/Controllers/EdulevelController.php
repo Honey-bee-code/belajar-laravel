@@ -35,4 +35,9 @@ class EdulevelController extends Controller
         return redirect('edulevels')->with('status', 'Jenjang berhasil ditambahkan!');
 
     }
+
+    public function edit($id)
+    {
+        return view('edulevels/edit');
+    }
 }
