@@ -52,7 +52,7 @@
                                 <th width="20px">No.</th>
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th width="100px"></th>
+                                <th width="180"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,6 +65,11 @@
                                     <a href="{{url('edulevels/edit/'.$item->id)}}" class="btn btn-primary btn-sm">
                                         <i class="fa fa-pencil"></i> Edit
                                     </a>
+                                    <form action="{{url('edulevels/'.$item->id)}}" method="post" class="d-inline" onsubmit="return confirm('Yakin akan menghapus data?')">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                    </form>
                                 </td>
                             </tr>                        
                             @endforeach
