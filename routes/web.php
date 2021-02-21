@@ -25,3 +25,4 @@ Route::get('edulevels', 'EdulevelController@data');//tampil data
 Route::get('edulevels/add', 'EdulevelController@add');//tampil form add
 Route::post('edulevels', 'EdulevelController@addProcess');//proses tambah data
 Route::get('edulevels/edit/{id}', 'EdulevelController@edit');//tampil form edit
+Route::patch('edulevels/{id}', 'EdulevelController@editProcess');//proses edit data, bisa patch bisa put
