@@ -30,6 +30,9 @@ class EdulevelController extends Controller
         $request->validate([
             'name' => 'required|min:2',
             'desc' => 'required',
+        ], [
+            'name.required' => 'Nama jenjang tidak boleh kosong',
+            'name.min' => 'Minimal 2 karakter'
         ]);
 
         DB::table('edulevels')->insert([
@@ -53,6 +56,9 @@ class EdulevelController extends Controller
         $request->validate([
             'name' => 'required|min:2',
             'desc' => 'required',
+        ], [
+            'name.required' => 'Nama jenjang tidak boleh kosong',
+            'name.min' => 'Minimal 2 karakter'
         ]);
 
         DB::table('edulevels')->where('id', $id)->update([
