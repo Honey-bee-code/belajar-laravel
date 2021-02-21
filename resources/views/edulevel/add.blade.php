@@ -27,7 +27,6 @@
 @section('content')
     <div class="content mt-3">
         <div class="animated fadeIn">
-
             <div class="card">
                 <div class="card-header">
                     <div class="pull-left">
@@ -43,7 +42,8 @@
 
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="">
+                            <form action="{{url('edulevels')}}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="">Nama Jenjang</label>
                                     <input type="text" name="name" class="form-control" autofocus required>

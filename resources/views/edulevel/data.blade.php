@@ -28,6 +28,12 @@
     <div class="content mt-3">
         <div class="animated fadeIn">
 
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">
                     <div class="pull-left">

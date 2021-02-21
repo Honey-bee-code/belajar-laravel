@@ -21,5 +21,6 @@ Route::get('home', function() {
     return view('home');
 });
 
-Route::get('edulevels', 'EdulevelController@data');
-Route::get('edulevels/add', 'EdulevelController@add');
+Route::get('edulevels', 'EdulevelController@data');//tampil data
+Route::get('edulevels/add', 'EdulevelController@add');//tampil form add
+Route::post('edulevels', 'EdulevelController@addProcess');//proses tambah data
