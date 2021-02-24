@@ -50,18 +50,21 @@
                         <thead>
                             <tr>
                                 <th width="20px">No.</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th width="180"></th>
+                                <th>Nama Program</th>
+                                <th>Jenjang</th>
+                                <th width="250px"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($programs as $item)
+                            @foreach ($programs as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->desc}}</td>
+                                <td>{{$item->edulevel->name}}</td>
                                 <td class="text-center">
+                                    <a href="{{url('programs/'.$item->id)}}" class="btn btn-warning btn-sm">
+                                        <i class="fa fa-eye"></i> Detail
+                                    </a>
                                     <a href="{{url('programs/edit/'.$item->id)}}" class="btn btn-primary btn-sm">
                                         <i class="fa fa-pencil"></i> Edit
                                     </a>
@@ -72,7 +75,7 @@
                                     </form>
                                 </td>
                             </tr>                        
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
