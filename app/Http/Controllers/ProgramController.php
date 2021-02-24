@@ -49,7 +49,7 @@ class ProgramController extends Controller
      */
     public function show(Program $program)
     {
-        return $program->makeHidden(['id', 'edulevel_id'])->toArray();
+        $program->makeHidden(['id', 'edulevel_id'])->toArray();
         // return $program;
         return view('program/show', compact('program'));
     }
