@@ -41,7 +41,8 @@
                         <strong>Data Program Terhapus</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{url('programs/delete')}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete All</i></a>
+                        <a href="{{url('programs/delete')}}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin akan menghapus semua data ini selamanya?')">
+                            <i class="fa fa-trash"> Delete All</i></a>
                         <a href="{{url('programs/restore')}}" class="btn btn-info btn-sm"><i class="fa fa-undo"> Restore All</i></a>
                         <a href="{{url('programs')}}" class="btn btn-secondary btn-sm"><i class="fa fa-chevron-left"> Back</i></a>
                     </div>
@@ -64,11 +65,8 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->edulevel->name}}</td>
                                 <td class="text-center">
-                                    <form action="{{url('programs/delete/'.$item->id)}}" method="post" class="d-inline" onsubmit="return confirm('Yakin akan menghapus data?')">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-danger btn-sm">Delete Permanent</button>
-                                    </form>
+                                    <a href="{{url('programs/delete/'.$item->id)}}" class="btn btn-danger btn-sm" 
+                                        onclick="return confirm('Yakin akan menghapus data ini selamanya?')">Delete Permanently</a>
                                     <a href="{{url('programs/restore/'.$item->id)}}" class="btn btn-info btn-sm">Restore</a>
                                 </td>
                             </tr>                        

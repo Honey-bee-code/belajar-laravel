@@ -189,12 +189,18 @@ class ProgramController extends Controller
             $programs = Program::onlyTrashed()->restore();
         }
 
-        return redirect('programs/trash')->with('status', 'Data program berhasil di-restore');
+        return redirect('programs/trash')->with('status', 'Data program berhasil di-restore!');
 
     }
 
-    public function delete()
+    public function delete($id=null)
     {
-        //
+        if($id != null){
+            $programs = Program::onlyTrashed()->where('id', $id)->forceDelete();
+        } else {
+            $programs = Program::onlyTrashed()->forceDelete();
+        }
+
+        return redirect('programs/trash')->with('status', 'Data program berhasil dihapus permanen!');
     }
 }
