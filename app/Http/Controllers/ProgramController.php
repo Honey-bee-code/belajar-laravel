@@ -174,4 +174,10 @@ class ProgramController extends Controller
         // Program::where('id', $program->id)->delete();
         return redirect('programs')->with('status', 'Data program berhasil dihapus');
     }
+
+    public function trash()
+    {
+        $programs = Program::onlyTrashed()->get();
+        return view('program/trash', compact('programs'));
+    }
 }

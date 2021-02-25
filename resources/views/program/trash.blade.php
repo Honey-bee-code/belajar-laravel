@@ -16,7 +16,8 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="#">Program</a></li>
-                        <li class="active">Data</li>
+                        <li><a href="#">Data</a></li>
+                        <li class="active">Trash</li>
                     </ol>
                 </div>
             </div>
@@ -37,11 +38,12 @@
             <div class="card">
                 <div class="card-header">
                     <div class="pull-left">
-                        <strong>Data Program</strong>
+                        <strong>Data Program Terhapus</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{url('programs/trash')}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Trash</i></a>
-                        <a href="{{url('programs/create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus"> Add</i></a>
+                        <a href="{{url('programs/delete')}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete All</i></a>
+                        <a href="{{url('programs/restore')}}" class="btn btn-info btn-sm"><i class="fa fa-undo"> Restore All</i></a>
+                        <a href="{{url('programs')}}" class="btn btn-secondary btn-sm"><i class="fa fa-chevron-left"> Back</i></a>
                     </div>
                 </div>
                 <div class="card-body table-responsive">
@@ -61,17 +63,12 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->edulevel->name}}</td>
                                 <td class="text-center">
-                                    <a href="{{url('programs/'.$item->id)}}" class="btn btn-warning btn-sm">
-                                        <i class="fa fa-eye"></i> Detail
-                                    </a>
-                                    <a href="{{url('programs/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-pencil"></i> Edit
-                                    </a>
-                                    <form action="{{url('programs/'.$item->id)}}" method="post" class="d-inline" onsubmit="return confirm('Yakin akan menghapus data?')">
+                                    <form action="{{url('programs/delete/'.$item->id)}}" method="post" class="d-inline" onsubmit="return confirm('Yakin akan menghapus data?')">
                                         @method('delete')
                                         @csrf
-                                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                        <button class="btn btn-danger btn-sm">Delete Permanent</button>
                                     </form>
+                                    <a href="{{url('programs/restore/'.$item->id)}}" class="btn btn-info btn-sm">Restore</a>
                                 </td>
                             </tr>                        
                             @endforeach
