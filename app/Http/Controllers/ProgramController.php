@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Program;
+use App\Edulevel;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -27,7 +28,8 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        //
+        $edulevels = Edulevel::all();
+        return view('program.create', compact('edulevels'));
     }
 
     /**
@@ -38,7 +40,50 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3',
+            'edulevel_id' => 'required',
+        ], [
+            'name.required' => 'Nama program tidak boleh kosong',
+            'edulevel_id.required' => 'Jenjang tidak boleh kosong',
+            'name.min' => 'Minimal 3 karakter'
+        ]);
+
+        // return $request;
+
+        // cara pertama
+        // $program = new Program;
+        // $program->name = $request->name;
+        // $program->edulevel_id = $request->edulevel_id;
+        // $program->student_price = $request->student_price;
+        // $program->student_max = $request->student_max;
+        // $program->info = $request->info;
+        // $program->save();
+
+        // cara kedua : mass assignment
+        // Program::create([
+        //     'edulevel_id' => $request->edulevel_id,
+        //     'name' => $request->name,
+        //     'student_price' => $request->student_price,
+        //     'student_max' => $request->student_max,
+        //     'info' => $request->info
+        // ]);
+
+        // cara ketiga : quick mass assignment -> syarat: field label dan name inputan harus sama
+        Program::create($request->all());
+
+        // cara keempat : gabungan
+        // $program = new Program([
+        //     'edulevel_id' => $request->edulevel_id,
+        //     'name' => $request->name,
+        //     'student_price' => $request->student_price,
+        //     'student_max' => $request->student_max,
+        //     'info' => $request->info
+        // ]);
+        // $program->student_price = $request->student_price;
+        // $program->save();
+
+        return redirect('programs')->with('status', 'Program berhasil ditambahkan');
     }
 
     /**
