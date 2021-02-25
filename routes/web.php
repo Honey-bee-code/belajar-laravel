@@ -28,6 +28,8 @@ Route::get('edulevels/edit/{id}', 'EdulevelController@edit');//tampil form edit
 Route::patch('edulevels/{id}', 'EdulevelController@editProcess');//proses edit data, bisa patch bisa put
 Route::delete('edulevels/{id}', 'EdulevelController@delete');//proses hapus data
 
-Route::get('programs/trash', 'ProgramController@trash');//tampil data
+Route::get('programs/trash', 'ProgramController@trash');//tampil data sampah
+Route::get('programs/restore/{id?}', 'ProgramController@restore');//mengembalikan data sampah
+Route::get('programs/delete/{id?}', 'ProgramController@delete');//hapus data sampah
 
 Route::resource('programs', 'ProgramController');

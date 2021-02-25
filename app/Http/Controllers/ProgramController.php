@@ -180,4 +180,21 @@ class ProgramController extends Controller
         $programs = Program::onlyTrashed()->get();
         return view('program/trash', compact('programs'));
     }
+
+    public function restore($id=null)
+    {
+        if($id != null){
+            $programs = Program::onlyTrashed()->where('id', $id)->restore();
+        } else {
+            $programs = Program::onlyTrashed()->restore();
+        }
+
+        return redirect('programs/trash')->with('status', 'Data program berhasil di-restore');
+
+    }
+
+    public function delete()
+    {
+        //
+    }
 }

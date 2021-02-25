@@ -57,6 +57,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if ($programs->count() > 0)
                             @foreach ($programs as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
@@ -72,6 +73,11 @@
                                 </td>
                             </tr>                        
                             @endforeach
+                            @else
+                            <tr>
+                                <td colspan="4" class="text-center">Tong sampah kosong !</td>
+                            </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>
