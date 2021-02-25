@@ -162,6 +162,14 @@ class ProgramController extends Controller
      */
     public function destroy(Program $program)
     {
-        //
+        // cara pertama
+        // $program->delete();
+
+        // cara kedua
+        // Program::destroy($program->id);
+
+        // cara ketiga
+        Program::where('id', $program->id)->delete();
+        return redirect('programs')->with('status', 'Data program berhasil dihapus');
     }
 }
