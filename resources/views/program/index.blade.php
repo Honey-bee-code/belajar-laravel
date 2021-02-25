@@ -65,7 +65,7 @@
                                     <a href="{{url('programs/'.$item->id)}}" class="btn btn-warning btn-sm">
                                         <i class="fa fa-eye"></i> Detail
                                     </a>
-                                    <a href="{{url('programs/edit/'.$item->id)}}" class="btn btn-primary btn-sm">
+                                    <a href="{{url('programs/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm">
                                         <i class="fa fa-pencil"></i> Edit
                                     </a>
                                     <form action="{{url('programs/'.$item->id)}}" method="post" class="d-inline" onsubmit="return confirm('Yakin akan menghapus data?')">

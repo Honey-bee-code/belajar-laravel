@@ -107,7 +107,8 @@ class ProgramController extends Controller
      */
     public function edit(Program $program)
     {
-        //
+        $edulevels = Edulevel::all();
+        return view('program.edit', compact('program', 'edulevels'));
     }
 
     /**
@@ -119,7 +120,38 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3',
+            'edulevel_id' => 'required',
+        ], [
+            'name.required' => 'Nama program tidak boleh kosong',
+            'edulevel_id.required' => 'Jenjang tidak boleh kosong',
+            'name.min' => 'Minimal 3 karakter'
+        ]);
+
+        // return $request;
+
+        //cara pertama
+        // $program = App\Flight::find(1); karena program sudah dideklarasikan jadi find tidak dipakai
+        // $program->name = $request->name;
+        // $program->edulevel_id = $request->edulevel_id;
+        // $program->student_price = $request->student_price;
+        // $program->student_max = $request->student_max;
+        // $program->info = $request->info;
+        // $program->save();
+
+        //cara kedua : mass assignment
+        Program::where('id', $program->id)
+        //   ->where('destination', 'San Diego')
+          ->update([
+            'edulevel_id' => $request->edulevel_id,
+            'name' => $request->name,
+            'student_price' => $request->student_price,
+            'student_max' => $request->student_max,
+            'info' => $request->info
+            ]);
+
+        return redirect('programs')->with('status', 'Program berhasil di update');
     }
 
     /**
